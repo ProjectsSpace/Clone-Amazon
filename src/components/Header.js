@@ -3,7 +3,7 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "@material-ui/core/Badge";
-import IconButton from "@material-ui/core/IconButton";
+
 function Header() {
   return (
     <div className="header">

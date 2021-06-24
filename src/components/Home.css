@@ -1,0 +1,25 @@
+.home {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1920px;
+}
+
+.home__container {
+}
+
+.home__image {
+}
+.home__image img {
+  position: relative;
+  width: 100%;
+  z-index: -1;
+  margin-bottom: -350px;
+  -webkit-mask-image: linear-gradient(180deg, black 50%, transparent);
+}
+
+.home__row {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 10px;
+}
