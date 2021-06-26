@@ -1,0 +1,9 @@
+.subtotal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+small.subtotal__gift {
+  margin: 5px 0 20px;
+}

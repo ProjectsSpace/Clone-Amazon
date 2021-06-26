@@ -1,8 +1,24 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useStateValue } from "../StateProvider";
 import "./Product.css";
 
-function Product({ title, image, price, rating }) {
+function Product({ id, title, image, price, rating }) {
+  const [{ cart }, dispatch] = useStateValue();
+
+  const addToCart = () => {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        id,
+        title,
+        image,
+        price,
+        rating,
+      },
+    });
+  };
+
   return (
     <div className="product">
       <div className="product__info">
@@ -24,7 +40,7 @@ function Product({ title, image, price, rating }) {
         <img src={image} alt="" />
       </div>
       <div className="product__button">
-        <button>Add to cart</button>
+        <button onClick={addToCart}>Add to cart</button>
       </div>
     </div>
   );

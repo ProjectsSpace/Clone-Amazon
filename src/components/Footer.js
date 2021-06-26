@@ -1,9 +1,10 @@
 import React from "react";
+import "./Footer.css";
 
 function Footer() {
   return (
     <div className="footer">
-      <h4 className="footer__title">Hello from footer</h4>
+      <h4 className="footer__title">Just another lonely footer</h4>
     </div>
   );
 }
