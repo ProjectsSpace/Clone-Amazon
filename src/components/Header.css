@@ -16,6 +16,7 @@
 }
 
 .header__search {
+  margin-right: 10px;
   display: flex;
   flex: 1;
 }

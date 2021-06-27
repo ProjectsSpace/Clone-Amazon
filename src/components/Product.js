@@ -28,11 +28,8 @@ function Product({ id, title, image, price, rating }) {
           <strong>{price}</strong>
         </p>
         <div className="product__rating">
-          {Array(rating)
-            .fill(0)
-            .map((_, el) => (
-              <span key={uuidv4()}>⭐</span>
-            ))}{" "}
+          {<span key={uuidv4()}>{"⭐".repeat(rating)}</span>}
+
           <strong>{rating}</strong>
         </div>
       </div>
