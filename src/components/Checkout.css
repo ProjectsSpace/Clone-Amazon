@@ -87,3 +87,8 @@ figure.item__image img {
 .product__rating {
   margin: 10px 0;
 }
+
+.empty__cart {
+  text-align: center;
+  margin: 30px 0 10px;
+}

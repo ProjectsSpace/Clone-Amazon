@@ -7,7 +7,6 @@ import { useStateValue } from "../StateProvider";
 
 function Checkout() {
   const [{ cart }] = useStateValue();
-
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -22,16 +21,22 @@ function Checkout() {
             <h2>Shopping Cart</h2>
           </div>
 
-          {cart?.map((product) => (
-            <CheckoutProduct
-              key={uuidv4()}
-              id={product.id}
-              title={product.title}
-              image={product.image}
-              price={product.price}
-              rating={product.rating}
-            />
-          ))}
+          {cart.length === 0 ? (
+            <div className="empty__cart">
+              Don't keep the cart empty, it's a sin!
+            </div>
+          ) : (
+            cart?.map((product) => (
+              <CheckoutProduct
+                key={uuidv4()}
+                id={product.id}
+                title={product.title}
+                image={product.image}
+                price={product.price}
+                rating={product.rating}
+              />
+            ))
+          )}
         </div>
       </div>
       <div className="checkout__right">
