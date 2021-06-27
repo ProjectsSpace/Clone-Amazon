@@ -1,12 +1,11 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
 import "./Checkout.css";
 import Subtotal from "./Subtotal";
 import CheckoutProduct from "./CheckoutProduct";
 import { useStateValue } from "../StateProvider";
-
+import FlipMove from "react-flip-move";
 function Checkout() {
-  const [{ cart }] = useStateValue();
+  const [{ cart, user }] = useStateValue();
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -18,7 +17,7 @@ function Checkout() {
         </figure>
         <div className="checkout__items">
           <div className="checkout__title checkout__item-row">
-            <h2>Shopping Cart</h2>
+            <h2>{user ? user?.displayName : "Guest"}'s Shopping Cart</h2>
           </div>
 
           {cart.length === 0 ? (
@@ -26,16 +25,18 @@ function Checkout() {
               Don't keep the cart empty, it's a sin!
             </div>
           ) : (
-            cart?.map((product) => (
-              <CheckoutProduct
-                key={uuidv4()}
-                id={product.id}
-                title={product.title}
-                image={product.image}
-                price={product.price}
-                rating={product.rating}
-              />
-            ))
+            <FlipMove staggerDurationBy={0} easing={"ease-in"} duration={200}>
+              {cart?.map((product) => (
+                <CheckoutProduct
+                  key={product.id}
+                  id={product.id}
+                  title={product.title}
+                  image={product.image}
+                  price={product.price}
+                  rating={product.rating}
+                />
+              ))}
+            </FlipMove>
           )}
         </div>
       </div>
