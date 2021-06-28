@@ -30,7 +30,7 @@ function Checkout() {
             <FlipMove staggerDurationBy={0} easing={"ease-in"} duration={200}>
               {cart?.map((product) => (
                 <CheckoutProduct
-                  key={uuidv4()}
+                  key={product.id}
                   id={product.id}
                   title={product.title}
                   image={product.image}

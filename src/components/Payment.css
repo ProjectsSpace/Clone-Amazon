@@ -1,0 +1,82 @@
+.payment {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.payment-section {
+  display: flex;
+  background: white;
+  padding: 10px 20px;
+}
+
+.payment__section {
+  display: flex;
+  background: white;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 5px;
+  flex-direction: column;
+}
+
+.payment__title {
+  border-bottom: 1px solid #d2d2d2;
+  margin: 10px 0;
+}
+
+.payment__title h2 {
+  margin-bottom: 10px;
+}
+
+.payment__items {
+  display: flex;
+  flex: 2 1;
+  border: 1px solid #c6c6c6;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.payment__itemsBox {
+  display: flex;
+}
+
+.payment__sutotal {
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: 1px solid #c6c6c6;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  background: #eef9f8;
+}
+.payment__priceContainer {
+  margin: 10px 0 20px;
+}
+
+.payment__button {
+  margin: 10px 0;
+}
+
+.payment__cardElement {
+  width: 30%;
+  border: 2px solid #9d9d9d;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.payment__button button {
+  background: #f4d078;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  border-color: #a88734 #9c7e31 #846a29;
+  padding: 3px 10px;
+}
