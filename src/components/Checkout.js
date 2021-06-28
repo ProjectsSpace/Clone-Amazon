@@ -47,7 +47,7 @@ function Checkout() {
           <Subtotal />
         </div>
         {cart?.length !== 0 ? (
-          <Link to="/payment">
+          <Link to={user ? "/payment" : "/login"}>
             <div className="checkout__final">
               <button>Proceed to checkout</button>
             </div>
