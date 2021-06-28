@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Checkout from "./components/Checkout";
+import Payment from "./components/Payment";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { useEffect } from "react";
@@ -42,6 +43,11 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Checkout />
+            <Footer />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment />
             <Footer />
           </Route>
           <Route path="/">

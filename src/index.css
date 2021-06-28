@@ -20,3 +20,7 @@ code {
 .sp-10 {
   margin-top: 10px;
 }
+
+a {
+  text-decoration: none;
+}

@@ -34,7 +34,7 @@ const CheckoutProduct = forwardRef(
           </div>
         </div>
         <div className="item__price">
-          <strong>{price}</strong>
+          <strong>${price}</strong>
         </div>
       </div>
     );

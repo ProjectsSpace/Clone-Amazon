@@ -1,9 +1,11 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./Checkout.css";
 import Subtotal from "./Subtotal";
 import CheckoutProduct from "./CheckoutProduct";
 import { useStateValue } from "../StateProvider";
 import FlipMove from "react-flip-move";
+import { Link } from "react-router-dom";
 function Checkout() {
   const [{ cart, user }] = useStateValue();
   return (
@@ -28,7 +30,7 @@ function Checkout() {
             <FlipMove staggerDurationBy={0} easing={"ease-in"} duration={200}>
               {cart?.map((product) => (
                 <CheckoutProduct
-                  key={product.id}
+                  key={uuidv4()}
                   id={product.id}
                   title={product.title}
                   image={product.image}
@@ -44,9 +46,15 @@ function Checkout() {
         <div className="checkout__sutotal">
           <Subtotal />
         </div>
-        <div className="checkout__final">
-          <button>Proceed to checkout</button>
-        </div>
+        {cart?.length !== 0 ? (
+          <Link to="/payment">
+            <div className="checkout__final">
+              <button>Proceed to checkout</button>
+            </div>
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
