@@ -23,9 +23,7 @@ function Checkout() {
           </div>
 
           {cart.length === 0 ? (
-            <div className="empty__cart">
-              Don't keep the cart empty, it's a sin!
-            </div>
+            <div className="empty__cart">Fill the cart, sing the song!</div>
           ) : (
             <FlipMove staggerDurationBy={0} easing={"ease-in"} duration={200}>
               {cart?.map((product) => (
