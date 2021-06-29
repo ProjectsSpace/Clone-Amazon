@@ -8,9 +8,9 @@ function Order({ order }) {
   return (
     <div className="order">
       <div className="order__titleArea">
-        <h2>Order - {order?.id}</h2>
+        <h3>Order - {order?.id}</h3>
         <p>
-          Order placed -{" "}
+          Order placed at -{" "}
           {moment.unix(order?.data.created).format("MMM Do YYYY, h:mma")}
         </p>
         <div className="order__total">
