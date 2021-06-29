@@ -28,7 +28,9 @@ const CheckoutProduct = forwardRef(
               ))}{" "}
             <strong>{rating}</strong>
           </div>
-          {itemRemoveButton && (
+          {itemRemoveButton ? (
+            ""
+          ) : (
             <div className="remove__item-button">
               <button onClick={removeFromCart}>Remove item</button>
             </div>
