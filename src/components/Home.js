@@ -36,14 +36,14 @@ function Home() {
             rating={5}
           />
           <Product
-            id="134983"
+            id={44}
             title="SAMSUNG Odyssey G5 Series 32-Inch WQHD (2560x1440) Gaming Monitor, 144Hz, Curved, 1ms"
             image="https://m.media-amazon.com/images/I/61Lb5JbFxML._AC_UY327_FMwebp_QL65_.jpg"
             price={349.99}
             rating={4}
           />
           <Product
-            id={44}
+            id={55}
             title="ASUS ROG Strix XG32VC 31.5” Curved Gaming Monitor, 1440P WQHD (2560 x 1440), 170Hz, 1ms"
             image="https://m.media-amazon.com/images/I/81PiiZcOrcL._AC_UY327_FMwebp_QL65_.jpg"
             price={499.99}
@@ -53,7 +53,7 @@ function Home() {
 
         <div className="home__row">
           <Product
-            id={55}
+            id={66}
             title="NETGEAR Nighthawk Pro Gaming XR700 WiFi Router with 6 Ethernet Ports and Wireless Speeds Up to 7.2 Gbps"
             image="https://m.media-amazon.com/images/I/510tPf7LeoL._AC_UY327_FMwebp_QL65_.jpg"
             price={499.99}

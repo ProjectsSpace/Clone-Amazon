@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { useEffect } from "react";
 import { auth } from "./firebase";
+import Orders from "./components/Orders";
 
 // Stripe imports
 import { loadStripe } from "@stripe/stripe-js";
@@ -40,6 +41,11 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+            <Footer />
+          </Route>
           <Route path="/register">
             <Register />
           </Route>

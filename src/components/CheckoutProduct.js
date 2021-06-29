@@ -1,9 +1,8 @@
 import React, { forwardRef } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { useStateValue } from "../StateProvider";
 
 const CheckoutProduct = forwardRef(
-  ({ id, image, title, rating, price }, ref) => {
+  ({ id, image, title, rating, price, itemRemoveButton }, ref) => {
     const [{ cart }, dispatch] = useStateValue();
     const removeFromCart = () => {
       dispatch({
@@ -25,13 +24,15 @@ const CheckoutProduct = forwardRef(
             {Array(rating)
               .fill(0)
               .map(() => (
-                <span key={uuidv4()}>⭐</span>
+                <span>⭐</span>
               ))}{" "}
             <strong>{rating}</strong>
           </div>
-          <div className="remove__item-button">
-            <button onClick={removeFromCart}>Remove item</button>
-          </div>
+          {itemRemoveButton && (
+            <div className="remove__item-button">
+              <button onClick={removeFromCart}>Remove item</button>
+            </div>
+          )}
         </div>
         <div className="item__price">
           <strong>${price}</strong>

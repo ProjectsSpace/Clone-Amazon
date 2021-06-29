@@ -1,0 +1,12 @@
+.orders {
+  max-width: 60%;
+  margin: 0 auto;
+}
+.orders__title {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px 0;
+  text-align: center;
+  box-shadow: 0px 2px 4px 0px #e1e1e1;
+}

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { useStateValue } from "../StateProvider";
 import FlipMove from "react-flip-move";
 import CheckoutProduct from "./CheckoutProduct";
@@ -10,13 +9,14 @@ import axios from "../axios";
 import { useElements, CardElement, useStripe } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { cartPriceTotal } from "../reducer";
+import { db } from "../firebase";
 
 function Payment() {
   const history = useHistory();
-  const [{ cart, user }] = useStateValue();
+  const [{ cart, user }, dispatch] = useStateValue();
 
   // Redirecting to homepage if all products are removed
-  if (cart?.length === 0) {
+  if (cart?.length === 0 || !user) {
     history.push("/");
   }
 
@@ -61,10 +61,25 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
+        // Pushing order to database
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            cart: cart,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         // paymentIntent === payment confirmation
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        dispatch({
+          type: "EMPTY_CART",
+        });
 
         // using replace because we don't want the request comes back to payment page
         // push will create multiple redirects
@@ -129,7 +144,7 @@ function Payment() {
             <h2>Payment Method</h2>
           </div>
           <div className="payment__body">
-            <form action="" onClick={!disabled && handleSubmit}>
+            <form action="" onClick={!disabled ? handleSubmit : undefined}>
               <div className="payment__priceContainer">
                 <CurrencyFormat
                   renderText={(value) => (

@@ -1,5 +1,4 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
 import { useStateValue } from "../StateProvider";
 import "./Product.css";
 
@@ -28,7 +27,7 @@ function Product({ id, title, image, price, rating }) {
           <strong>{price}</strong>
         </p>
         <div className="product__rating">
-          {<span key={uuidv4()}>{"⭐".repeat(rating)}</span>}
+          {<span>{"⭐".repeat(rating)}</span>}
 
           <strong>{rating}</strong>
         </div>

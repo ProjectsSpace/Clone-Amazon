@@ -26,7 +26,6 @@ app.post("/payments/create", async (req, res) => {
     amount: total,
     currency: "INR",
     description: "Amazon Clone Payments",
-    "payment_method_types[]": "card",
   });
 
   res.status(201).send({
