@@ -8,18 +8,37 @@
 .home__container {
 }
 
-.home__image {
-}
-.home__image img {
-  position: relative;
-  width: 100%;
-  z-index: -1;
+.slider__container {
   margin-bottom: -350px;
-  -webkit-mask-image: linear-gradient(180deg, black 50%, transparent);
 }
 
 .home__row {
   display: flex;
   justify-content: space-evenly;
   margin: 0 10px;
+}
+
+.slider__container .slider__image {
+  -webkit-mask-image: linear-gradient(180deg, black 50%, transparent);
+}
+
+/* Homepgae carousel tweaks */
+.carousel.carousel-slider .control-arrow {
+  top: -350px !important;
+  padding: 20px !important;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: transparent !important;
+}
+.carousel .control-next.control-arrow:before {
+  border-left: 15px solid #fff;
+}
+.carousel .control-prev.control-arrow:before {
+  border-right: 15px solid #fff;
+}
+.carousel .control-arrow:before,
+.carousel.carousel-slider .control-arrow:before {
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
 }

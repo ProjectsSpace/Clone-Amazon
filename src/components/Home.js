@@ -2,13 +2,35 @@ import React from "react";
 import "./Home.css";
 import Product from "./Product";
 import header_bg from "../assets/images/home_bg.jpg";
+import header_bg2 from "../assets/images/home_bg2.jpg";
+import header_bg3 from "../assets/images/home_bg3.jpg";
+import SliderImage from "./SliderImage";
 
 function Home() {
+  const images = [header_bg, header_bg2, header_bg3];
+  const configurableProps = {
+    showArrows: true,
+    showStatus: false,
+    showIndicators: false,
+    infiniteLoop: true,
+    showThumbs: false,
+    useKeyboardArrows: false,
+    autoPlay: true,
+    stopOnHover: true,
+    swipeable: true,
+    dynamicHeight: true,
+    emulateTouch: true,
+    autoFocus: false,
+    interval: 5000,
+    transitionTime: 500,
+  };
+
   return (
     <div className="home">
       <div className="home__container">
         <div className="home__image">
-          <img src={header_bg} alt="Home bg" />
+          {/* <img src={header_bg} alt="Home bg" /> */}
+          <SliderImage images={images} configurableProps={configurableProps} />
         </div>
         <div className="home__row">
           <Product
