@@ -27,7 +27,9 @@
 .payment__title h2 {
   margin-bottom: 10px;
 }
-
+.payment__body {
+  width: 40%;
+}
 .payment__items {
   display: flex;
   flex: 2 1;
@@ -60,7 +62,6 @@
 }
 
 .payment__cardElement {
-  width: 30%;
   border: 2px solid #9d9d9d;
   border-radius: 5px;
   padding: 10px;
@@ -79,4 +80,13 @@
   vertical-align: middle;
   border-color: #a88734 #9c7e31 #846a29;
   padding: 3px 50px;
+}
+
+.payment__button .loader-spin {
+  margin: 0;
+  text-align: left;
+}
+.payment__button .loader-spin .MuiCircularProgress-colorPrimary {
+  width: 20px !important;
+  height: 20px !important;
 }

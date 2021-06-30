@@ -181,7 +181,9 @@ function Payment() {
                     <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                   </button>
                 ) : (
-                  <CircularProgress />
+                  <div className="loader-spin">
+                    <CircularProgress />
+                  </div>
                 )}
               </div>
               <div className="payment__error">{error ? error : ""}</div>

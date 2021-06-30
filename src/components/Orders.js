@@ -4,6 +4,7 @@ import { db } from "../firebase";
 import { useStateValue } from "../StateProvider";
 import Order from "./Order";
 import { useHistory } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Orders() {
   const history = useHistory();
@@ -39,9 +40,13 @@ function Orders() {
         <h1>Your Orders</h1>
       </div>
       <div className="orders__single">
-        {orders?.map((order) => (
-          <Order key={order.id} order={order} />
-        ))}
+        {orders.length === 0 ? (
+          <div className="loader-spin">
+            <CircularProgress />
+          </div>
+        ) : (
+          orders?.map((order) => <Order key={order.id} order={order} />)
+        )}
       </div>
     </div>
   );

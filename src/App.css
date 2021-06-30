@@ -1,2 +1,10 @@
 .app {
 }
+.loader-spin {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.loader-spin .MuiCircularProgress-colorPrimary {
+  color: #f90;
+}
