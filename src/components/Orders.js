@@ -3,10 +3,17 @@ import "./Orders.css";
 import { db } from "../firebase";
 import { useStateValue } from "../StateProvider";
 import Order from "./Order";
+import { useHistory } from "react-router-dom";
 
 function Orders() {
+  const history = useHistory();
   const [{ cart, user }, dispatch] = useStateValue();
   const [orders, setOrders] = useState([]);
+
+  // redirecting non users to login page
+  if (!user) {
+    history.push("/login");
+  }
 
   useEffect(() => {
     if (user) {
