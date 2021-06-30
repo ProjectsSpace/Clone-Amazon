@@ -17,7 +17,7 @@ app.use(express.json());
 
 // API routes
 
-app.post("/api/payments/create", async (req, res) => {
+app.post("/payments/create", async (req, res) => {
   const total = req.query.total;
 
   console.log("payment request received, yeeeee!!!", total);
@@ -34,4 +34,4 @@ app.post("/api/payments/create", async (req, res) => {
 });
 
 // Listen command
-app.listen(5000);
+exports.api = functions.https.onRequest(app);

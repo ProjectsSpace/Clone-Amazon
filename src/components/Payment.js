@@ -10,6 +10,7 @@ import { useElements, CardElement, useStripe } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { cartPriceTotal } from "../reducer";
 import { db } from "../firebase";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Payment() {
   const history = useHistory();
@@ -29,7 +30,7 @@ function Payment() {
   const [processing, setProcessing] = useState("");
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
-  const [clientSecret, setClientSecret] = useState(true);
+  const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
     // Receive the token object from stripe
@@ -53,6 +54,13 @@ function Payment() {
 
     // sets to true when the button is clicked
     setProcessing(true);
+
+    const response = await axios({
+      method: "post",
+      // Stripe takes amount in subunits
+      url: `/payments/create?total=${cartPriceTotal(cart) * 100}`,
+    });
+    setClientSecret(response.data.clientSecret);
 
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
@@ -168,9 +176,13 @@ function Payment() {
                 onChange={handleChange}
               />
               <div className="payment__button">
-                <button disabled={processing || disabled || succeeded}>
-                  <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
-                </button>
+                {clientSecret ? (
+                  <button disabled={processing || disabled || succeeded}>
+                    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                  </button>
+                ) : (
+                  <CircularProgress />
+                )}
               </div>
               <div className="payment__error">{error ? error : ""}</div>
             </form>
