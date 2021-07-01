@@ -4,6 +4,6 @@
 
 ## Techs
 
-- React
-- Firebase
-- NodeJS
+- React Frontend
+- Firebase Hosting
+- NodeJS Backend (hosted on heroku)
