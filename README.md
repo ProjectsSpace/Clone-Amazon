@@ -1,6 +1,6 @@
 ## Demo
 
-[Amazonclone](clone-61d6f.web.app)
+[Amazonclone](https://clone-61d6f.web.app/)
 
 ## Techs
 
