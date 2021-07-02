@@ -11,7 +11,8 @@ import { useStateValue } from "./StateProvider";
 import { useEffect } from "react";
 import { auth } from "./firebase";
 import Orders from "./components/Orders";
-
+import Account from "./components/Account";
+import UserProfile from "./components/user/UserProfile";
 // Stripe imports
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -41,6 +42,16 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/userUpdate">
+            <Header />
+            <UserProfile />
+            <Footer />
+          </Route>
+          <Route path="/account">
+            <Header />
+            <Account />
+            <Footer />
+          </Route>
           <Route path="/orders">
             <Header />
             <Orders />

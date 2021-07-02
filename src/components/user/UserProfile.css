@@ -1,0 +1,45 @@
+.user__profile {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+form.update__form label {
+  font-weight: bold;
+}
+
+.form___element {
+  margin-bottom: 10px;
+}
+
+.form__element {
+  margin-bottom: 15px;
+}
+
+.form__element input {
+  padding: 5px 0 5px 5px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.form__element p {
+  margin-bottom: 5px;
+}
+
+.update__form button {
+  background: #eff0f3;
+  background: -webkit-linear-gradient(top, #f7f8fa, #e7e9ec);
+  background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  border-color: #a88734 #9c7e31 #846a29;
+  padding: 6px 20px;
+}

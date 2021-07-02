@@ -52,7 +52,7 @@ function Header() {
             <span className="header__optionLineTwo">&amp; Orders</span>
           </div>
         </Link>
-        <Link to="/account">
+        <Link to={user ? "/account" : "/register"}>
           <div className="header__option">
             <span className="header__optionLineOne">Your</span>
             <span className="header__optionLineTwo">Account</span>
