@@ -1,6 +1,10 @@
 export const initialState = {
-  cart: [],
-  user: null,
+  cart: localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [],
+  user: localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : null,
 };
 
 // Getting total price of the cart
@@ -28,6 +32,8 @@ const reducer = (state, action) => {
           `Can't remove product (id: ${action.id}) as it's not in cart!`
         );
       }
+
+      localStorage.setItem("cart", JSON.stringify(tempCart));
 
       return {
         ...state,

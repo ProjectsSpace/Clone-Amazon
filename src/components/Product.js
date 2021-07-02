@@ -5,6 +5,9 @@ import "./Product.css";
 function Product({ id, title, image, price, rating }) {
   const [{ cart }, dispatch] = useStateValue();
 
+  // Initializing the localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
   const addToCart = () => {
     dispatch({
       type: "ADD_TO_CART",
@@ -16,6 +19,9 @@ function Product({ id, title, image, price, rating }) {
         rating,
       },
     });
+
+    // Adding cart item to the localStorage to make it persistent
+    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   return (
